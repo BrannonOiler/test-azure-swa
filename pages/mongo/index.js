@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 async function getUser() {
   const response = await fetch('/.auth/me');
