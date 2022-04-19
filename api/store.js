@@ -1,6 +1,6 @@
 // TODO: Ensure you configured MONGODB_CONNECTION_STRING on the server when deployed
 // https://docs.microsoft.com/azure/static-web-apps/application-settings
-let connectionString = `${process.env.PREFIX}`;
+let connectionString = process.env.MONGODB_CONNECTION_STRING;
 
 // Load mongoose
 const mongoose = require('mongoose');
