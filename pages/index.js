@@ -13,6 +13,7 @@ const Home = () => (
     {/** Auth test */}
     <AuthenticatedTemplate>
       <a href="/logout">Sign out (custom)</a>
+      <a href="/mongo">MongoDB Test</a>
     </AuthenticatedTemplate>
     <UnauthenticatedTemplate>
       <a href="/login">Sign in (custom)</a>
