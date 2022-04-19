@@ -1,8 +1,13 @@
 {
-    "extends": ["next/core-web-vitals", "next", "prettier"],
-    "plugins": ["prettier"],
-    "rules": {
-      "@next/next/google-font-display": "off",
-      "prettier/prettier": ["error"]
-    }
+  "extends": ["next/core-web-vitals", "next", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "@next/next/google-font-display": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   }
+}
