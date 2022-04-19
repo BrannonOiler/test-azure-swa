@@ -5,6 +5,12 @@ import { projects } from '../utils/projectsData';
 
 const Home = () => (
   <div className="home">
+    {/** Auth test */}
+    <div>
+      <a href="/login">Sign in (custom)</a>
+    </div>
+
+    {/** Default */}
     <h1>What Can I Deploy to Static Apps?</h1>
     <div className="card-grid">
       {projects.map((project) => {
