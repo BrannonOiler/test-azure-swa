@@ -17,16 +17,17 @@ async function loadTasks() {
 }
 
 const Mongo = () => {
-  const [user, setUser] = useState(null);
+  //   const [user, setUser] = useState(null);
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     async function pageLoad() {
-      const user = await getUser();
-      setUser(user);
+      //   const newUser = await getUser();
+      //   setUser(newUser);
 
-      if (user) setTasks(await loadTasks());
-      else window.location.href = '/login';
+      //   if (newUser) setTasks(await loadTasks());
+      //   else window.location.href = '/login';
+      setTasks(await loadTasks());
     }
 
     pageLoad();
@@ -36,7 +37,7 @@ const Mongo = () => {
     <div>
       <h1>MongoDB Test</h1>
       <p>This is a MongoDB test page.</p>
-      {user && <p>User: {user}</p>}
+      {/* {user && <p>User: {user}</p>} */}
       <p>{tasks && JSON.stringify(tasks)}</p>
     </div>
   );

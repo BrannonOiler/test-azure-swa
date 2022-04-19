@@ -21,6 +21,10 @@
       "allowedRoles": ["authenticated"]
     },
     {
+      "route": "/unsecret/index.html",
+      "allowedRoles": ["unauthenticated"]
+    },
+    {
       "route": "/login",
       "redirect": "/.auth/login/aad"
     },

@@ -10,10 +10,11 @@ import { projects } from '../utils/projectsData';
 
 const Home = () => (
   <div className="home">
-    {/** Auth test */}
+    {/** Tests */}
     <AuthenticatedTemplate>
       <a href="/logout">Sign out (custom)</a>
-      <a href="/mongo">MongoDB Test</a>
+      <a href="/mongo">MongoDB</a>
+      <a href="/secret">Secret</a>
     </AuthenticatedTemplate>
     <UnauthenticatedTemplate>
       <a href="/login">Sign in (custom)</a>
