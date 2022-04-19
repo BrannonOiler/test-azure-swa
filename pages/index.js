@@ -8,6 +8,7 @@ const Home = () => (
     {/** Auth test */}
     <div>
       <a href="/login">Sign in (custom)</a>
+      <a href="/logout">Sign in (custom)</a>
     </div>
 
     {/** Default */}
