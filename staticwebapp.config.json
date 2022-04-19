@@ -19,6 +19,10 @@
     {
       "route": "/login",
       "redirect": "/.auth/login/aad"
+    },
+    {
+      "route": "/logout",
+      "redirect": "/.auth/logout/aad"
     }
   ]
 }
