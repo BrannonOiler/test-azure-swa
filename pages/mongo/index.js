@@ -29,6 +29,7 @@ const Mongo = () => {
   }, []);
 
   const handlePostClick = async () => {
+    console.log('POST');
     const response = await fetch('/api/tasks', {
       method: 'POST',
       headers: {
@@ -36,14 +37,15 @@ const Mongo = () => {
       },
       body: JSON.stringify({
         title: 'New task',
-        completed: false
+        completed: false,
       }),
     });
-    
+
     setTasks(await loadTasks());
   };
 
   const handlePutClick = async () => {
+    console.log('PUT');
     const task = tasks[tasks.length - 1];
 
     const response = await fetch(`/api/tasks/${task._id}`, {
@@ -53,10 +55,10 @@ const Mongo = () => {
       },
       body: JSON.stringify({
         title: 'Updated',
-        completed: true
+        completed: true,
       }),
     });
-    
+
     setTasks(await loadTasks());
   };
 
@@ -67,12 +69,8 @@ const Mongo = () => {
       {/* {user && <p>User: {user}</p>} */}
       <p>{tasks && JSON.stringify(tasks)}</p>
       <span>
-        <button onClick={handlePostClick}>
-          Post
-        </button>
-        <button onClick={handlePutClick}>
-          Put
-        </button>
+        <button onClick={handlePostClick}>Post</button>
+        <button onClick={handlePutClick}>Put</button>
       </span>
     </div>
   );
