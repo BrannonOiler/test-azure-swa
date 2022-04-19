@@ -30,7 +30,7 @@
     },
     {
       "route": "/logout",
-      "redirect": "/.auth/logout/aad"
+      "redirect": "/.auth/logout"
     }
   ]
 }
