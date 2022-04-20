@@ -66,7 +66,6 @@ const Mongo = () => {
     <div>
       <h1>MongoDB Test</h1>
       <p>This is a MongoDB test page.</p>
-      {/* {user && <p>User: {user}</p>} */}
       <p>{tasks && JSON.stringify(tasks)}</p>
       <span>
         <button onClick={handlePostClick}>Post</button>
