@@ -1,8 +1,3 @@
-import {
-  AuthenticatedTemplate,
-  UnauthenticatedTemplate,
-} from '@azure/msal-react';
-
 import { projectIcons } from '../components/Icons';
 import SmallCard from '../components/SmallCard';
 
@@ -11,15 +6,10 @@ import { projects } from '../utils/projectsData';
 const Home = () => (
   <div className="home">
     {/** Tests */}
-    <AuthenticatedTemplate>
-      <a href="/logout">Sign out (custom)</a>
-      <a href="/mongo">MongoDB</a>
-      <a href="/secret">Secret</a>
-    </AuthenticatedTemplate>
-    <UnauthenticatedTemplate>
-      <a href="/login">Sign in (custom)</a>
-    </UnauthenticatedTemplate>
-
+    <a href="/login">Sign in (custom)</a>
+    <a href="/logout">Sign out (custom)</a>
+    <a href="/mongo">MongoDB</a>
+    <a href="/secret">Secret</a>
     {/** Default */}
     <h1>What Can I Deploy to Static Apps?</h1>
     <div className="card-grid">

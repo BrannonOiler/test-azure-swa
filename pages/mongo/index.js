@@ -22,16 +22,45 @@ const Mongo = () => {
 
   useEffect(() => {
     async function pageLoad() {
-      //   const newUser = await getUser();
-      //   setUser(newUser);
-
-      //   if (newUser) setTasks(await loadTasks());
-      //   else window.location.href = '/login';
       setTasks(await loadTasks());
     }
 
     pageLoad();
   }, []);
+
+  const handlePostClick = async () => {
+    console.log('POST');
+    const response = await fetch('/api/tasks', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title: 'New task',
+        completed: false,
+      }),
+    });
+
+    setTasks(await loadTasks());
+  };
+
+  const handlePutClick = async () => {
+    console.log('PUT');
+    const task = tasks[tasks.length - 1];
+
+    const response = await fetch(`/api/tasks/${task._id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title: 'Updated',
+        completed: true,
+      }),
+    });
+
+    setTasks(await loadTasks());
+  };
 
   return (
     <div>
@@ -39,6 +68,10 @@ const Mongo = () => {
       <p>This is a MongoDB test page.</p>
       {/* {user && <p>User: {user}</p>} */}
       <p>{tasks && JSON.stringify(tasks)}</p>
+      <span>
+        <button onClick={handlePostClick}>Post</button>
+        <button onClick={handlePutClick}>Put</button>
+      </span>
     </div>
   );
 };
