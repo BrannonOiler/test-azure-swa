@@ -7,7 +7,11 @@ const Home = () => (
   <div className="home">
     {/** Tests */}
     <a href="/login">Sign in (custom)</a>
-    <a href="/logout">Sign out (custom)</a>
+    <a href="/logout">Sign out 1</a>
+    <a href="/.auth/logout?post_logout_redirect_uri=/">Sign out 2</a>
+    <a href="/logout?post_logout_redirect_uri=https://brave-hill-003077a0f.1.azurestaticapps.net/">
+      Sign out 3
+    </a>
     <a href="/mongo">MongoDB</a>
     <a href="/secret">Secret</a>
     {/** Default */}
