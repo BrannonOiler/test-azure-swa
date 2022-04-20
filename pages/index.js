@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import { projectIcons } from '../components/Icons';
 import SmallCard from '../components/SmallCard';
 
