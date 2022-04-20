@@ -3,27 +3,36 @@ import SmallCard from '../components/SmallCard';
 
 import { projects } from '../utils/projectsData';
 
-const getUser = async () =>
-  (await (await fetch('/.auth/me')).json())?.clientPrincipal;
-
 const Home = () => {
-  const getUserClick = async () => {
-    const user = await getUser();
-    console.log(user);
-  };
+  const [logoutURL, setLogoutURL] = useState(
+    '/.auth/logout?post_logout_redirect_uri=/'
+  );
+  const [user, setUser] = useState(null);
+  const isSignedIn = Boolean(user);
+
+  useEffect(() => {
+    const getUser = async () => {
+      setUser((await (await fetch('/.auth/me')).json())?.clientPrincipal);
+    };
+
+    getUser();
+  }, []);
+
+  const handleLogoutURLChange = (event) => setLogoutURL(event.target.value);
 
   return (
     <div className="home">
       {/** Tests */}
-      <a href="/login">Sign in (custom)</a>
-      <a href="/logout">Sign out 1</a>
-      <a href="/.auth/logout?post_logout_redirect_uri=/">Sign out 2</a>
-      <a href="/.auth/logout?post_logout_redirect_uri=https://brave-hill-003077a0f.1.azurestaticapps.net/">
-        Sign out 3
-      </a>
-      <a href="/mongo">MongoDB</a>
-      <a href="/secret">Secret</a>
-      <button onClick={getUserClick}>Get User</button>
+      {isSignedIn && (
+        <>
+          <input onChange={handleLogoutURLChange} value={logoutURL} />
+          <a href={logoutURL}>Sign out</a>
+          <a href="/mongo">MongoDB</a>
+          <a href="/secret">Secret</a>
+        </>
+      )}
+      {!isSignedIn && <a href="/login">Sign in (custom)</a>}
+
       {/** Default */}
       <h1>What Can I Deploy to Static Apps?</h1>
       <div className="card-grid">
